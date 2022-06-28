@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-forecast
+  labels:
+    app: simple-forecast
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-quotes
+  template:
+    metadata:
+      labels:
+        app: simple-forecast
+    spec:
+      containers:
+      - name: simple-forecast
+        image: gcr.io/PROJECT_ID/IMAGE:TAG
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 6000
+---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: simple-forecast
+  spec:
+    type: ClusterIP
+    ports:
+    - port: 6000
+      targetPort: 6000
+      protocol: TCP
+    selector:
+      app: simple-forecast
