@@ -1,2 +1,2 @@
 # simple-forecast
-A dummy forecast service
+A dummy weather forecast service
