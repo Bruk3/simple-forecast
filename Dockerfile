@@ -16,4 +16,4 @@ RUN python -mpip install -r requirements.txt
 EXPOSE 6000
 
 # Start the application
-CMD ["python", "main.py"]
+CMD ["python", "app.py"]
